@@ -1,6 +1,3 @@
-//---------------------
-// HW-6 Task 1
-
 const categoriesList = document.querySelector('ul#categories');
 console.log('Number of categories:', categoriesList.children.length);
 console.log('');
@@ -14,6 +11,3 @@ for (let index = 0; index < h2arrayCategories.length; index++) {
         console.log("");
     };
 };
-
-//---------------------
-
