@@ -12,3 +12,17 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const gallery = document.querySelector('.gallery');
+
+gallery.setAttribute("style", "margin: 0; list-style: none; display: flex; flex-direction: column; justify-content: center;")
+
+console.log(gallery.attributes);
+
+for (const image of images) {
+  let htmlString = `<li><img src="${image.url}" alt="${image.alt}" style="height: 100%; width: 100%; padding: 0px 10px;"></li>`;
+  
+  gallery.innerHTML += htmlString;
+  
+  console.log(gallery.innerHTML);
+};
