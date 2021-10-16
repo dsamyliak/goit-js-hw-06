@@ -4,13 +4,11 @@ console.log('');
 
 const arrayCategories = categoriesList.querySelectorAll('.item');
 
-console.log(arrayCategories);
-
 arrayCategories.forEach ( element => {
    
     console.log(`Category: ${element.querySelector("h2").textContent}`);
     console.log(`Elements: ${element.querySelectorAll('li').length}`,);
-    
+    console.log("");
 });
 
 // Old version
