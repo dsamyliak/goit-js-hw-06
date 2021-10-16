@@ -13,6 +13,6 @@ refs.changeColorBtn.addEventListener("click", btnClick);
 function btnClick () {
   
   refs.bodyColor.style.backgroundColor = getRandomHexColor();
-  refs.spanColor.textContent = refs.bodyColor.style["background-color"];
+  refs.spanColor.textContent = `${getRandomHexColor()} or ${refs.bodyColor.style["background-color"]}`;
 
 };
