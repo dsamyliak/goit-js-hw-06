@@ -9,11 +9,16 @@ const ingredients = [
 
 const ulIngredients = document.querySelector('ul#ingredients');
 
-for (const iterator of ingredients) {
+const liElements = ingredients.map((ingredient) => {
+  
   const elementLi = document.createElement('li');
+  elementLi.textContent = ingredient;
   elementLi.classList.add('item');
-  elementLi.textContent = iterator;
-  ulIngredients.append(elementLi);
-};
 
-console.log(ulIngredients);
+  return elementLi;
+});
+
+console.log(liElements);
+
+ulIngredients.append(...liElements);
+

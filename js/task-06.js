@@ -10,5 +10,6 @@ const bluredString = inputString.addEventListener("blur", (e) => {
         inputString.classList.replace("invalid", "valid");
         console.log('valid');
     };
+    
 });
 
