@@ -3,7 +3,7 @@ console.log('inputString', inputString);
 
 const bluredString = inputString.addEventListener("blur", (e) => {
     console.log('yes, blured');
-    if (inputString.value.length < inputString.dataset.length) {
+    if (inputString.value.length === inputString.dataset.length) {
         console.log('less then 6');
         inputString.classList.add("invalid");
     } else {
