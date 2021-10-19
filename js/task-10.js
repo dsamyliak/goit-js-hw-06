@@ -11,10 +11,12 @@ inputDivNumber.value = 1;
 const createBtn = document.querySelector("button[data-create]");
 
 function createBoxes(amount) {
+
+  destroyBoxes();
+
   amount = inputDivNumber.value;
   console.log("create boxes", amount);
 
-  const marginHeight = 10;
   let startWidth = 30;
   let startHeight = 30;
   let newDiv;
@@ -22,7 +24,7 @@ function createBoxes(amount) {
   // empty div, like margin
   const emptyDiv = document.createElement("div");
   emptyDiv.classList.add("created-boxes");
-  emptyDiv.style.height = `${marginHeight}px`;
+  emptyDiv.style.height = "10px";
   divBoxes.append(emptyDiv);
 
   for (let index = 0; index < amount; index++) {
@@ -30,14 +32,15 @@ function createBoxes(amount) {
     newDiv = document.createElement("div");
     newDiv.classList.add("created-boxes");
     newDiv.style.backgroundColor = getRandomHexColor();
+    newDiv.style.border = "inset 1px gray";
     newDiv.style.width = `${startWidth}px`;
     newDiv.style.height = `${startHeight}px`;
     startWidth += 10;
     startHeight += 10;
     divBoxes.append(newDiv);
     console.log("divBoxes", divBoxes);
-  };
-  
+
+  };  
 };
 
 createBtn.addEventListener("click", createBoxes);
@@ -48,7 +51,7 @@ createBtn.addEventListener("click", createBoxes);
 const destroyBtn = document.querySelector("button[data-destroy]");
 
 
-const destroyBoxes = () => {
+function destroyBoxes() {
   const newDivs = document.querySelectorAll(".created-boxes");
   console.log(newDivs);
 
