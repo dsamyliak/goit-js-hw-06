@@ -4,6 +4,9 @@ function getRandomHexColor() {
 
 const divBoxes = document.querySelector("div#boxes");
 const inputDivNumber = document.querySelector("input");
+inputDivNumber.value = 1;
+
+// createBoxes(amount)
 
 const createBtn = document.querySelector("button[data-create]");
 
@@ -11,29 +14,36 @@ function createBoxes(amount) {
   amount = inputDivNumber.value;
   console.log("create boxes", amount);
 
-  let divBoxesString = {};
+  const marginHeight = 10;
   let startWidth = 30;
   let startHeight = 30;
-  
+  let newDiv;
+
+  // empty div, like margin
+  const emptyDiv = document.createElement("div");
+  emptyDiv.classList.add("created-boxes");
+  emptyDiv.style.height = `${marginHeight}px`;
+  divBoxes.append(emptyDiv);
+
   for (let index = 0; index < amount; index++) {
-    const newDiv = document.createElement("div");
+
+    newDiv = document.createElement("div");
     newDiv.classList.add("created-boxes");
     newDiv.style.backgroundColor = getRandomHexColor();
     newDiv.style.width = `${startWidth}px`;
     newDiv.style.height = `${startHeight}px`;
-    console.log(newDiv);
-    divBoxesString += newDiv;
     startWidth += 10;
     startHeight += 10;
+    divBoxes.append(newDiv);
+    console.log("divBoxes", divBoxes);
   };
-
-  console.log(divBoxesString);
-
-  divBoxes.append(divBoxesString);
+  
 };
 
 createBtn.addEventListener("click", createBoxes);
 
+
+// destroyBoxes
 
 const destroyBtn = document.querySelector("button[data-destroy]");
 
