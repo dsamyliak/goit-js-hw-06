@@ -78,8 +78,7 @@ const destroyBtn = document.querySelector("button[data-destroy]");
 
 function destroyBoxes() {
   const newDivs = document.querySelectorAll(".created-boxes");
-  // console.log(newDivs);
-
+  
   newDivs.forEach(newDiv => {
   newDiv.remove();
   });
