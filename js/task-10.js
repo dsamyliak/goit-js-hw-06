@@ -21,26 +21,51 @@ function createBoxes(amount) {
   let startHeight = 30;
   let newDiv;
 
+
   // empty div, like margin
   const emptyDiv = document.createElement("div");
   emptyDiv.classList.add("created-boxes");
   emptyDiv.style.height = "10px";
   divBoxes.append(emptyDiv);
+  // 
+  
+  // old version
+  // for (let index = 0; index < amount; index++) {
 
-  for (let index = 0; index < amount; index++) {
+  //   newDiv = document.createElement("div");
+  //   newDiv.classList.add("created-boxes");
+  //   newDiv.style.backgroundColor = getRandomHexColor();
+  //   newDiv.style.border = "inset 3px gray";
+  //   newDiv.style.width = `${startWidth}px`;
+  //   newDiv.style.height = `${startHeight}px`;
+  //   startWidth += 10;
+  //   startHeight += 10;
+    
+  //   divBoxes.append(newDiv);
+  //   console.log("divBoxes", divBoxes);
 
-    newDiv = document.createElement("div");
-    newDiv.classList.add("created-boxes");
-    newDiv.style.backgroundColor = getRandomHexColor();
-    newDiv.style.border = "inset 1px gray";
-    newDiv.style.width = `${startWidth}px`;
-    newDiv.style.height = `${startHeight}px`;
-    startWidth += 10;
-    startHeight += 10;
-    divBoxes.append(newDiv);
-    console.log("divBoxes", divBoxes);
+  // };  
+  
+  let newDivs = [];
 
-  };  
+for (let index = 0; index < amount; index++) {
+
+  newDiv = document.createElement("div");
+  newDiv.classList.add("created-boxes");
+  newDiv.style.backgroundColor = getRandomHexColor();
+  newDiv.style.border = "inset 3px gray";
+  newDiv.style.width = `${startWidth}px`;
+  newDiv.style.height = `${startHeight}px`;
+  startWidth += 10;
+  startHeight += 10;
+  
+  newDivs.push(newDiv);
+  
+  };
+    
+  divBoxes.append(...newDivs);
+  console.log('newDivs',newDivs);
+  console.log("divBoxes", divBoxes);
 };
 
 createBtn.addEventListener("click", createBoxes);
@@ -53,7 +78,7 @@ const destroyBtn = document.querySelector("button[data-destroy]");
 
 function destroyBoxes() {
   const newDivs = document.querySelectorAll(".created-boxes");
-  console.log(newDivs);
+  // console.log(newDivs);
 
   newDivs.forEach(newDiv => {
   newDiv.remove();
